@@ -55,18 +55,25 @@ public class Main {
 
         // generating others
         arrPerm = new ArrayList<>();
-        permutations(0, arr);
+        permutations(0, arr.clone());
 
         boolean iso = false;
         List<Pair> isoList = new ArrayList<>();
         for(int n1 = 0; n1 < number; n1++) {
-            for(int n2 = n1; n2 < number; n2++) {
+            for(int n2 = n1 + 1; n2 < number; n2++) {
                 for (int[] arr2 : arrPerm) {
                     // generating similar matrix P
                     int[][] matrixP = new int[arr.length][arr.length];
                     for (int i = 0; i < arr.length; i++) {
                         matrixP[arr[i]][arr2[i]] = 1;
                     }
+
+                    /* for(int[] a : matrixP) {
+                        for (int i : a) System.out.print(i + " ");
+                        System.out.println("\r");
+                    }
+
+                    System.out.println(" ->>>>>>>>>> "); */
 
                     // P - ортогональная матрица, её обратная = траспонированной (thanks God)
                     int[][] inverseP = getInverse(matrixP);
@@ -102,12 +109,14 @@ public class Main {
 
         arr[j] ^= (arr[i] ^= arr[j]);
         arr[i] ^= arr[j];
-        return arr;
+        return arr.clone();
     }
 
     private static void permutations(int iter, int[] arr) {
         if (iter >= arr.length - 1) {
             arrPerm.add(arr);
+            //for(int i : arr) System.out.print(i + " ");
+            //System.out.println("\r");
         } else {
             for (int i = iter; i < arr.length; i++) {
                 permutations(iter + 1, swapped(arr, iter, i));
