@@ -68,13 +68,6 @@ public class Main {
                         matrixP[arr[i]][arr2[i]] = 1;
                     }
 
-                    /* for(int[] a : matrixP) {
-                        for (int i : a) System.out.print(i + " ");
-                        System.out.println("\r");
-                    }
-
-                    System.out.println(" ->>>>>>>>>> "); */
-
                     // P - ортогональная матрица, её обратная = траспонированной (thanks God)
                     int[][] inverseP = getInverse(matrixP);
                     matrixP = matrixMultiply(matrixP, adjMatrix[n1]);
@@ -99,7 +92,7 @@ public class Main {
                 System.out.print(" {" + pair.getA() + ", " + pair.getB() + "}");
             }
         }else{
-            System.out.println("This graphs are not isomorphic");
+            System.out.println("These graphs are not isomorphic");
         }
     }
 
