@@ -1,2 +1,2 @@
-# EvilGraphs
-Find out evil isomorphic graphs!
+# Isomorphic Graphs
+Find out evil isomorphic graphs
